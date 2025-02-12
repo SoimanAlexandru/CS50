@@ -44,7 +44,7 @@ int checksum(long nr)
 int main(void)
 {
     long nr;
-    int l, f, x = 0;
+    int l, f;
     do
     {
         nr = get_long("Number: ");
@@ -55,18 +55,12 @@ int main(void)
         l = length(nr);
         f = first(nr);
         if (l == 15 && (f == 34 || f == 37))
-            x = 1;
+            printf("AMEX\n");
         else if (l == 16 && (f == 51 || f == 52 || f == 53 || f == 54 || f == 55))
-            x = 2;
+            printf("MASTERCARD\n");
         else if ((l == 13 || l == 16) && f == 4)
-            x = 3;
+            printf("VISA\n");
+        else 
+            printf("INVALID\n");
     }
-    if (x == 1)
-        printf("AMEX\n");
-    else if (x == 2)
-        printf("MASTERCARD\n");
-    else if (x == 3)
-        printf("VISA\n");
-    else if (x == 0)
-        printf("INVALID\n");
 }
