@@ -33,18 +33,17 @@ int validkey(string key)
 string substitution(string text, string key)
 {
     int i;
-    char *c = text;
     for (i = 0; text[i] != '\0'; i++)
     {
         if (isalpha(text[i]))
         {
             if (isupper(text[i]))
-                c[i] = toupper(key[text[i] - 'A']);
+                text[i] = toupper(key[text[i] - 'A']);
             else
-                c[i] = tolower(key[text[i] - 'a']);
+                text[i] = tolower(key[text[i] - 'a']);
         }
     }
-    return c;
+    return text;
 }
 
 int main(int argc, string argv[])
